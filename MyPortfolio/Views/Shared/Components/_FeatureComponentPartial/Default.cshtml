@@ -1,5 +1,5 @@
-﻿<!-- home
-   ================================================== -->
+﻿@model Feature
+
 <section id="home" class="s-home page-hero target-section" data-parallax="scroll" data-image-src="/hola-master/images/hero-bg.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
 
     <div class="overlay"></div>
@@ -9,12 +9,10 @@
 
         <div class="row home-content__main">
 
-            <h3>Hello There</h3>
+            <h3>@Model.Title</h3>
 
             <h1>
-                I am Jonathan Doe. <br>
-                I am a graphic & UI/UX <br>
-                designer based in Somewhere.
+                @Model.Description
             </h1>
 
             <div class="home-content__buttons">

@@ -1,17 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using MyPortfolio.Dal.Context;
 
 namespace MyPortfolio.ViewComponents
 {
-    public class _FeatureComponentPartial:ViewComponent
+    public class _SkillComponentPartial:ViewComponent
     {
         MyPortfolioContext context = new MyPortfolioContext();
         public IViewComponentResult Invoke()
         {
-            var value = context.Features.FirstOrDefault();
-            return View(value);  
+            var values = context.Skills.ToList();
+            return View(values);  
         }
     }
-
 }
