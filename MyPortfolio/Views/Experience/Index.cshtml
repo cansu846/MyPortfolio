@@ -1,8 +1,38 @@
-﻿
+﻿@model List<Experience>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Layout/Index.cshtml";
 }
 
-<h1>Experience Page</h1>
-
+<div class="card">
+	<div class="card-header">
+		<div class="card-title">Add Experience</div>
+	</div>
+	<div class="card-body">
+		<table class="table table-striped mt-3">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Header</th>
+					<th scope="col">Title</th>
+					<th scope="col">Description</th>
+					<th scope="col">Edit</th>
+					<th scope="col">Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach(var item in Model){ 
+				<tr>
+					<td>@item.ExperienceId</td>
+					<td>@item.Head</td>
+					<td>@item.Title</td>
+					<td>@item.Description</td>
+					<td><a href="/Experience/EditExperience/@item.ExperienceId" class="btn btn-success" />Update</td>
+					<td><a href="/Experience/DeleteExperience/@item.ExperienceId" class="btn btn-danger" />Delete</td>
+				</tr>
+				}
+			</tbody>
+		</table>
+		 <a href="/Experience/AddExperience" class="btn btn-primary"> Add</a>
+	</div>
+</div>
