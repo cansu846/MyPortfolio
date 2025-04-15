@@ -43,10 +43,24 @@ namespace MyPortfolio.Controllers
         }
 
 
-        [HttpGet]
+       
         public IActionResult DeleteToDo(int id)
         {
             context.ToDoLists.Remove(context.ToDoLists.Find(id));
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult UpdateToDoList(int id)
+        {
+            var values = context.ToDoLists.Find(id);
+            return View(values);
+        }
+        [HttpPost]
+        public IActionResult UpdateToDoList(ToDoList e)
+        {
+            context.ToDoLists.Update(e);
             context.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -6,7 +6,7 @@
 
 <div class="card">
 	<div class="card-header">
-		<div class="card-title">Add Experience</div>
+		<div class="card-title">To Do List</div>
 	</div>
 	<div class="card-body">
 		<table class="table table-striped mt-3">
@@ -26,24 +26,22 @@
 					<tr>
 						<td>@item.ToDoListId</td>
 						<td>@item.Title</td>
-						<td>@item.Date</td>
-						<td>@item.Status</td>
-						<td>
+						<td>@item.Date</td>					
  						@if (item.Status == true)
 						{
-								<a href="/ToDoList/AddToDoList" class="btn btn-success"> False </a>
+							<td><a href="/ToDoList/ChangeStatusFalse/@item.ToDoListId" class="btn btn-outline-info"> True </a></td>
 						}
 						else
 						{
-                                <a href="/ToDoList/ChangeStatusFalse/@item.ToDoListId" class="btn btn-success">True</a>
+                            <td><a href="/ToDoList/ChangeStatusTrue/@item.ToDoListId" class="btn btn-outline-dark">False</a></td>
 						}
-						</td>
+						<td><a href="/ToDoList/UpdateToDoList/@item.ToDoListId" class="btn btn-success" />Update</td>
 						<td><a href="/ToDoList/DeleteToDoList/@item.ToDoListId" class="btn btn-danger" />Delete</td>
 					</tr>
 				}
 			</tbody>
 		</table>
-		<a href="/ToDoList/AddToDoList" class="btn btn--primary">Add<a/>
+		<a href="/ToDoList/AddToDoList" class="btn btn-primary">Add<a/>
 	</div>
 </div>
 
