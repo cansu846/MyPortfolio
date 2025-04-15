@@ -21,5 +21,7 @@ namespace MyPortfolio.Dal.Context
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
+        public DbSet<ToDoList> ToDoLists { get; set; }
+
     }
 }

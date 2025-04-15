@@ -17,7 +17,6 @@ namespace MyPortfolio.Controllers
             var values = context.Messages.Find(id);
             return View(values);
         }
-        
 
         public IActionResult ChangeIsReadTrue(int id)
         {

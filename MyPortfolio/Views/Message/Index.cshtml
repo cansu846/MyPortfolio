@@ -1,8 +1,4 @@
 ﻿
-@{
-	ViewData["Title"] = "Index";
-	Layout = "~/Views/Layout/Index.cshtml";
-}
 @model List<Message>
 @{
 	ViewData["Title"] = "ListMeesage";
@@ -11,7 +7,7 @@
 
 <div class="card">
 	<div class="card-header">
-		<div class="card-title">Add Experience</div>
+		<div class="card-title">Messages</div>
 	</div>
 	<div class="card-body">
 		<table class="table table-striped mt-3">
@@ -35,15 +31,13 @@
 						<td>@item.Subject</td>
 						<td>@item.Date</td>
 						<td><a href="/Message/DetailMessage/@item.MessageId" class="btn btn-primary" />Detail</td>
-						@if (item.IsRead == true)
-						{
-							<td><a href="/Message/ChangeIsReadTrue/@item.MessageId" class="btn btn-success" /> Unread</td>
-						}
-						else
-						{
+						@if(item.IsRead==false)
+						{ 
+							<td><a href="/Message/ChangeIsReadTrue/@item.MessageId" class="btn btn-warning" /> Unread</td>
+						}else{ 
 							<td><a href="/Message/ChangeIsReadFalse/@item.MessageId" class="btn btn-success" />Seen</td>
 						}
-						<td><a href="/Message/DeleteMessage/@item.MessageId" class="btn btn-danger" />Delete</td>
+							<td><a href="/Message/DeleteMessage/@item.MessageId" class="btn btn-outline-danger" />Delete</td>
 					</tr>
 				}
 			</tbody>

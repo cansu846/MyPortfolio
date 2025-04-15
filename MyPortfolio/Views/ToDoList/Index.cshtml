@@ -1,0 +1,49 @@
+﻿@model List<ToDoList>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="card">
+	<div class="card-header">
+		<div class="card-title">Add Experience</div>
+	</div>
+	<div class="card-body">
+		<table class="table table-striped mt-3">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Title</th>
+					<th scope="col">Date</th>
+					<th scope="col">Status</th>
+					<th scope="col">Update</th>
+					<th scope="col">Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>@item.ToDoListId</td>
+						<td>@item.Title</td>
+						<td>@item.Date</td>
+						<td>@item.Status</td>
+						<td>
+ 						@if (item.Status == true)
+						{
+								<a href="/ToDoList/AddToDoList" class="btn btn-success"> False </a>
+						}
+						else
+						{
+                                <a href="/ToDoList/ChangeStatusFalse/@item.ToDoListId" class="btn btn-success">True</a>
+						}
+						</td>
+						<td><a href="/ToDoList/DeleteToDoList/@item.ToDoListId" class="btn btn-danger" />Delete</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+		<a href="/ToDoList/AddToDoList" class="btn btn--primary">Add<a/>
+	</div>
+</div>
+
